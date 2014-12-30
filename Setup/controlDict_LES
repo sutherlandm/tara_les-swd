@@ -1,0 +1,179 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include "../../Setup/caseSetup"
+
+libs (
+  "libOpenFOAM.so"
+  "libfieldFunctionObjects.so"
+  "libutilityFunctionObjects.so"
+);
+
+application     pisoFoam;
+
+startFrom       latestTime;
+
+startTime       $LES_StartTime;
+
+stopAt          endTime;
+
+endTime         $LES_EndTime;
+
+deltaT          $LES_DeltaT;
+
+writeControl    adjustableRunTime;
+
+writeInterval   $LES_simWriteInterval;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression compressed;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable yes;
+
+adjustTimeStep	yes;
+
+maxCo		$LES_simMaxCo;
+maxDeltaT	$LES_simMaxDeltaT;
+
+graphFoamt	gnuplot;
+
+functions
+{
+	forces
+	{
+    type                forces;
+    functionObjectLibs  ("libforces.so");
+    outputControl       timeStep;
+    outputInterval      1;     
+    patches             ("building.*");
+    pName               p;
+    UName               U;
+    rhoName             rhoInf;
+    rhoInf              1;
+    log                 true;     
+    CofR                (0 0 0);    
+	}	
+
+    forceCoeffs
+    {
+        type            forceCoeffs;
+        functionObjectLibs ( "libforces.so" );
+        outputControl   timeStep;
+        outputInterval  1;
+        patches         ( "building.*" );
+        pName           p;
+        UName           U;
+        rhoName         rhoInf;
+        log             true;
+        rhoInf          1;
+        liftDir         (0 1 0);
+        dragDir         (-1 0 0);
+        CofR            (0 0 0);
+        pitchAxis       (0 1 0);
+        magUInf         32;
+        lRef            2.5;
+        Aref            37.5;
+    }
+
+	fieldAverage
+    {
+        type            fieldAverage;
+        functionObjectLibs ("libfieldFunctionObjects.so");
+        enabled         true;
+        outputControl   outputTime;	
+		timeStart 		$LES_averageStart;
+
+        fields
+        (
+            U
+            {
+                mean        on;
+                prime2Mean  off;
+                base        time;
+            }
+
+            p
+            {
+                mean        on;
+                prime2Mean  off;
+                base        time;
+            }
+            
+            nuSgs
+            {
+                mean        on;
+                prime2Mean  off;
+                base        time;
+            }
+            
+            k
+            {
+                mean        on;
+                prime2Mean  off;
+                base        time;
+            }
+        );
+    }
+    
+	Q_calculation
+    {
+      type				Q;
+      functionObjectLibs 	("libutilityFunctionObjects.so");
+      enabled			true;
+      outputControl		outputTime;
+      timeStart 		$LES_averageStart;
+    }
+
+    Lambda2_calculation
+    {
+      type				Lambda2;
+      functionObjectLibs 	("libutilityFunctionObjects.so");
+      enabled			true;
+      outputControl		outputTime;
+      timeStart 		$LES_averageStart;
+    }
+
+    CourantNo_calculation
+    {
+      type				CourantNo;
+      functionObjectLibs 	("libutilityFunctionObjects.so");
+      enabled			false;
+      outputControl		outputTime;
+    }
+    
+    yPlusLES_calculation
+    {
+      type				yPlusLES;
+      functionObjectLibs 	("libutilityFunctionObjects.so");
+      enabled			false;
+      timeStart			0;
+      timeEnd			1;
+      outputControl		outputTime;
+    }
+	
+}
+
+// ************************************************************************* //

@@ -1,0 +1,15 @@
+Tara Urban WindDB LES Release Notes:
+
+-----------------------------------------------------------
+Version: 1.0
+1) Base files and scripts
+	a) General structure to automate the setup and running
+	b) Follow directions in the Setup folder
+2) Automated running
+	a) First run a steady RANS k-w SST simulation
+	b) Map results to new domain and run LES
+3) Post process results  
+	a) Save velocity and pressure field as .csv files
+	a) Boxed area specification for data trimming
+	b) MySQL database uploading script
+-----------------------------------------------------------

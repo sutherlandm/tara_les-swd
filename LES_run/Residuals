@@ -1,0 +1,9 @@
+set logscale y
+set title "Residuals"
+set ylabel 'Residual'
+set xlabel 'Iteration'
+plot "< cat log_pisoFoam | grep 'Solving for Ux' | cut -d' ' -f13 | tr -d ','" title 'Ux' with lines
+replot "< cat log_pisoFoam | grep 'Solving for Uy' | cut -d' ' -f13 | tr -d ','" title 'Uy' with lines
+replot "< cat log_pisoFoam | grep 'Solving for Uz' | cut -d' ' -f13 | tr -d ','" title 'Uz' with lines
+pause 1
+reread
