@@ -14,7 +14,7 @@ cd ${0%/*} || exit 1
 #Ensure variables below are set, the standard working directory files are present, such
 #as the geometry .stl file, and all variables in Setup/caseSetup are set. 
 
-CORENUM=16        #Number of parallel cores (must be local, non-network)
+CORENUM=14        #Number of parallel cores (must be local, non-network)
 DORANS_MESH=1     #Do the RANS case meshing
 DORANS=1          #Run the potential and k-e sims after meshing
 DOMAP=1           #Reconstruct the RANS results and map after LES meshing 

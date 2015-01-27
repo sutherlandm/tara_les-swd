@@ -6,7 +6,7 @@
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 
-coreNumber	    16;
+coreNumber	14;
 flowVelocity	(32 0 0);
 pressure        0;
 turbulentKE     0.1536;
@@ -15,7 +15,7 @@ turbulentEps	0.0054178;
 nut	0;
 //Base Cell Numbers
 x	55;
-y   27;
+y       27;
 z 	14;
 //Domain Size
 x_start		-90;
@@ -33,17 +33,17 @@ FA_z_start	0;
 FA_z_end	22;
 //Refinement Levels
 bldRefine_low	3;
-bldRefine_high	5;
-FA_refineLevel	5;
+bldRefine_high	3;
+FA_refineLevel	3;
 //RANS Control
 RANS_StartTime	       0;
 RANS_EndTime	       5000;
-RANS_DeltaT	           1;
+RANS_DeltaT	       1;
 RANS_simWriteInterval  50;
 //LES Control
 LES_StartTime	       0;
-LES_EndTime	           30;
-LES_DeltaT	           8e-4;
+LES_EndTime	       30;
+LES_DeltaT	       8e-4;
 LES_simWriteInterval   0.05;		//In seconds
 LES_simMaxCo	       0.4;
 LES_simMaxDeltaT       1e-3;
