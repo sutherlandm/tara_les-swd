@@ -7,34 +7,34 @@
 \*---------------------------------------------------------------------------*/
 
 coreNumber		14;
-flowVelocity	(32 0 0);
+flowVelocity	(2.266 0 0);
 pressure        0;
 turbulentKE     0.1536;
-turbulentOmega  1.56767;
-turbulentEps	0.0054178;	
+turbulentOmega  19.595;
+turbulentEps	0.2709;	
 nut	0;
 //Base Cell Numbers
-x	55;
-y   27;
-z 	14;
+x	61;
+y   33;
+z 	20;
 //Domain Size
-x_start		-90;
-x_end		203.315;
-y_start		-72;
-y_end		72;
+x_start		-2.34;
+x_end		3.2;
+y_start		-1.14;
+y_end		1.14;
 z_start		0;
-z_end		74.662;
+z_end		1.2;
 //Flight Area Size
-FA_x_start 	-6.5;
-FA_x_end	25;
-FA_y_start	-6.5;
-FA_y_end	6.5;
+FA_x_start 	-0.1;
+FA_x_end	0.4;
+FA_y_start	-0.1;
+FA_y_end	0.1;
 FA_z_start	0;
-FA_z_end	22;
+FA_z_end	0.18;
 //Refinement Levels
 bldRefine_low	3;
-bldRefine_high	5;
-FA_refineLevel	5;
+bldRefine_high	6;//5
+FA_refineLevel	6;//5
 //RANS Control
 RANS_StartTime	       	0;
 RANS_EndTime	       	5000;
@@ -42,12 +42,12 @@ RANS_DeltaT	       		1;
 RANS_simWriteInterval  	50;
 //LES Control
 LES_StartTime	       	0;
-LES_EndTime	       		30;
-LES_DeltaT	       		8e-4;
-LES_simWriteInterval   	0.05;		//In seconds
+LES_EndTime	       		40;
+LES_DeltaT	       		2.5e-5;
+LES_simWriteInterval   	0.25;		//In seconds
 LES_simMaxCo	       	0.4;
 LES_simMaxDeltaT       	1e-3;
 LES_simMinDeltaT       	8e-4;
-LES_averageStart       	6;
+LES_averageStart       	12;
 #inputMode             	merge
 // ************************************************************************* //

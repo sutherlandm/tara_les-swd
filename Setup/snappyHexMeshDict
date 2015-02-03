@@ -31,10 +31,10 @@ addLayers       false;
 // - to 'snap' the mesh boundary to the surface
 geometry
 {
-    sb_L25_H15_A0_zUP.stl
+    highrise_112.stl
     {
         type triSurfaceMesh;
-	name building;	
+		name building;	
     }
 
 //     buildingBox
@@ -92,7 +92,7 @@ castellatedMeshControls
     features
     (
         {
-	file "sb_L25_H15_A0_zUP.eMesh";
+	file "highrise_112.eMesh";
 	level 0;
 	}
     );
@@ -167,7 +167,7 @@ castellatedMeshControls
     // NOTE: This point should never be on a face, always inside a cell, even
     // after refinement.
     // This is an outside point locationInMesh (-0.033 -0.033 0.0033);
-    locationInMesh (-20 0 5); // Inside point
+    locationInMesh (-2 0 0.5); // Inside point
 
     // Whether any faceZones (as specified in the refinementSurfaces)
     // are only on the boundary of corresponding cellZones or also allow
