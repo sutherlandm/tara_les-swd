@@ -15,7 +15,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-LESModel        Smagorinsky;
+LESModel        oneEqEddy;
 
 delta           cubeRootVol;
 
