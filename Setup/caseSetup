@@ -33,8 +33,8 @@ FA_z_start	0;
 FA_z_end	22;
 //Refinement Levels
 bldRefine_low	3;
-bldRefine_high	3;
-FA_refineLevel	3;
+bldRefine_high	5;
+FA_refineLevel	5;
 //RANS Control
 RANS_StartTime	       	0;
 RANS_EndTime	       	5000;
