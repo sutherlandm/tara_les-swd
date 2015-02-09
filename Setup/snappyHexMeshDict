@@ -31,7 +31,7 @@ addLayers       false;
 // - to 'snap' the mesh boundary to the surface
 geometry
 {
-    sb_L25_H15_A0_zUP.stl
+    cn_rr2_rr2_sh1_w25_zUp.stl
     {
         type triSurfaceMesh;
 	name building;	
@@ -92,7 +92,7 @@ castellatedMeshControls
     features
     (
         {
-	file "sb_L25_H15_A0_zUP.eMesh";
+	file "cn_rr2_rr2_sh1_w25_zUp.eMesh";
 	level 0;
 	}
     );
